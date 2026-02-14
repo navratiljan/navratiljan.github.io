@@ -1,6 +1,6 @@
 <template>
   <div class="container" :class="{ 'party-mode': partyMode, falling, rising }" :style="gridStyle">
-    <div class="cell" v-for="i in totalCells" :key="i" :class="{ rotated: rotatedCells.has(i), special: i === specialCell, party: i === partyCell }" :style="(falling || rising) ? { animationDelay: `${Math.random() * 0.8}s` } : {}" @click="onCellClick(i)">
+    <div class="cell" v-for="i in totalCells" :key="i" :class="{ rotated: rotatedCells.has(i), special: isSpecialCell(i) }" :style="(falling || rising) ? { animationDelay: `${Math.random() * 0.8}s` } : {}" @click="onCellClick(i)">
       <img :src="shuffled[i - 1]" alt="flower" />
     </div>
   </div>
@@ -85,18 +85,14 @@ function toggleRotation(i: number) {
   rotatedCells.value = new Set(rotatedCells.value)
 }
 
+function isSpecialCell(i: number) {
+  return i % 5 === 0
+}
+
 function onCellClick(i: number) {
-  if (i === specialCell.value) {
+  if (isSpecialCell(i)) {
     dialogStep.value = 'ask'
     dialogRef.value?.showModal()
-  } else if (i === partyCell.value) {
-    partyMode.value = !partyMode.value
-    if (partyMode.value) {
-      audio.currentTime = 0.95
-      audio.play()
-    } else {
-      audio.pause()
-    }
   } else {
     toggleRotation(i)
   }
@@ -188,14 +184,6 @@ const cols = computed(() => {
 const cellSize = computed(() => (width.value - (cols.value - 1) * gap) / cols.value)
 const rows = computed(() => Math.ceil((height.value + gap) / (cellSize.value + gap)))
 const totalCells = computed(() => cols.value * rows.value)
-const specialCell = computed(() => Math.floor(Math.random() * totalCells.value) + 1)
-const partyCell = computed(() => {
-  let cell
-  do {
-    cell = Math.floor(Math.random() * totalCells.value) + 1
-  } while (cell === specialCell.value)
-  return cell
-})
 
 const shuffled = computed(() => {
   return Array.from({ length: totalCells.value }, () =>
@@ -296,10 +284,6 @@ const gridStyle = computed(() => ({
         animation: pulse 1.5s ease-in-out infinite;
       }
     }
-  }
-
-  &.party {
-    cursor: url('@/assets/cursors/disco_32.png'), pointer;
   }
 
   img {
