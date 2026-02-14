@@ -9,7 +9,7 @@
     <button class="close-button" @click="closeDialog">&times;</button>
 
     <template v-if="dialogStep === 'ask'">
-      <div style="color: white">Anja, will you be my valentine?</div>
+      <div style="color: white">Ájo, budeš moje valentýnka? <3 </div>
       <div class="dialog-buttons">
         <button class="fall-button" @click="answerYes">Yes</button>
         <button class="fall-button" @click="answerNo">No</button>
@@ -17,7 +17,7 @@
     </template>
 
     <template v-if="dialogStep === 'sure'">
-      <div style="color: white">Are you sure?</div>
+      <div style="color: white">Jsi si jakože naprosto jistá??</div>
       <div class="dialog-buttons">
         <button ref="runawayRef" class="fall-button runaway" :style="{ transform: `translate(${runawayOffset.x}px, ${runawayOffset.y}px)` }" @mouseover="moveRunaway" @click="sureYes">Yes</button>
         <button class="fall-button" @click="sureNo">No</button>
