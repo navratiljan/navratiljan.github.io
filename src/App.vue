@@ -11,16 +11,16 @@
     <template v-if="dialogStep === 'ask'">
       <div style="color: white">Ájo, budeš moje valentýnka? 🥰</div>
       <div class="dialog-buttons">
-        <button class="fall-button" @click="answerYes">Anoooooooo (moje reakce: 😍😘👀🥰)</button>
-        <button class="fall-button" @click="answerNo">Ne!! (moje reakce: 😭🙄😓)</button>
+        <button class="fall-button" @click="answerYes">Anoooooooo 😍😘👀🥰</button>
+        <button class="fall-button" @click="answerNo">Ne!!! 😭🙄😓</button>
       </div>
     </template>
 
     <template v-if="dialogStep === 'sure'">
-      <div style="color: white">Jsi si jakože naprosto jistá?? 😌</div>
+      <div style="color: white">Jsi si jakože naprosto jistá, že ne ?????</div>
       <div class="dialog-buttons">
-        <button ref="runawayRef" class="fall-button runaway" :style="{ transform: `translate(${runawayOffset.x}px, ${runawayOffset.y}px)` }" @mouseover="moveRunaway" @click="sureYes">Yes</button>
-        <button class="fall-button" @click="sureNo">No</button>
+        <button ref="runawayRef" class="fall-button runaway" :style="{ transform: `translate(${runawayOffset.x}px, ${runawayOffset.y}px)` }" @mouseover="moveRunaway" @click="sureYes">Ano(to těžko dovolim hihi)</button>
+        <button class="fall-button" @click="sureNo">Nee, vlastně hrozně chci (to jsem si myslel 😌)</button>
       </div>
     </template>
 
