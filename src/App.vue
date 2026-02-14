@@ -11,8 +11,12 @@
     <template v-if="dialogStep === 'ask'">
       <div style="color: white">Ájo, budeš moje valentýnka? 🥰</div>
       <div class="dialog-buttons">
-        <button class="fall-button" @click="answerYes">Anoooooooo 😍😘👀🥰</button>
-        <button class="fall-button" @click="answerNo">Ne!!! 😭🙄😓</button>
+        <button class="fall-button" @click="answerYes">
+            Anoooooooo<br>😍😘👀🥰
+        </button>
+        <button class="fall-button" @click="answerNo">
+          Ne!!!<br>😭🙄😓😤
+        </button>
       </div>
     </template>
 
