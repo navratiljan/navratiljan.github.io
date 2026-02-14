@@ -184,11 +184,7 @@ const cols = computed(() => {
 const cellSize = computed(() => (width.value - (cols.value - 1) * gap) / cols.value)
 const rows = computed(() => Math.ceil((height.value + gap) / (cellSize.value + gap)))
 const totalCells = computed(() => cols.value * rows.value)
-const specialCell = computed(() => {
-  const index = Math.floor(Math.random() * cellCount.value)
-  console.log('Special cell index:', index)
-  return index
-})
+const specialCell = computed(() => Math.floor(Math.random() * totalCells.value) + 1)
 const partyCell = computed(() => {
   let cell
   do {
