@@ -23,7 +23,7 @@
     <template v-if="dialogStep === 'sure'">
       <div style="color: white">Jsi si jakože naprosto jistá, že ne ?????</div>
       <div class="dialog-buttons">
-        <button ref="runawayRef" class="fall-button runaway" :style="{ transform: `translate(${runawayOffset.x}px, ${runawayOffset.y}px)` }" @mouseover="moveRunaway" @click="sureYes">Ano(to těžko dovolim hihi)</button>
+        <button ref="runawayRef" class="fall-button runaway" :style="{ transform: `translate(${runawayOffset.x}px, ${runawayOffset.y}px)` }" @mouseover="moveRunaway"">Ano(to těžko dovolim hihi)</button>
         <button class="fall-button" @click="sureNo">Nee, vlastně hrozně chci (to jsem si myslel 😌)</button>
       </div>
     </template>
