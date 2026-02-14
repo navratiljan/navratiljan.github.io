@@ -9,15 +9,15 @@
     <button class="close-button" @click="closeDialog">&times;</button>
 
     <template v-if="dialogStep === 'ask'">
-      <div style="color: white">Ájo, budeš moje valentýnka? <3 </div>
+      <div style="color: white">Ájo, budeš moje valentýnka? 🥰</div>
       <div class="dialog-buttons">
-        <button class="fall-button" @click="answerYes">Yes</button>
-        <button class="fall-button" @click="answerNo">No</button>
+        <button class="fall-button" @click="answerYes">Anoooooooo (moje reakce: 😍😘👀🥰)</button>
+        <button class="fall-button" @click="answerNo">Ne!! (moje reakce: 😭🙄😓)</button>
       </div>
     </template>
 
     <template v-if="dialogStep === 'sure'">
-      <div style="color: white">Jsi si jakože naprosto jistá??</div>
+      <div style="color: white">Jsi si jakože naprosto jistá?? 😌</div>
       <div class="dialog-buttons">
         <button ref="runawayRef" class="fall-button runaway" :style="{ transform: `translate(${runawayOffset.x}px, ${runawayOffset.y}px)` }" @mouseover="moveRunaway" @click="sureYes">Yes</button>
         <button class="fall-button" @click="sureNo">No</button>
@@ -25,7 +25,7 @@
     </template>
 
     <template v-if="dialogStep === 'party'">
-      <div style="color: white">yeeeeeeeeaaaah!</div>
+      <div style="color: white">Super mega ultra skvělý!💕 </div>
     </template>
   </dialog>
 </template>
